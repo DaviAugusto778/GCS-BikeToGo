@@ -1,0 +1,28 @@
+name: Bug
+description: Relatar um defeito no produto.
+title: "[BUG] "
+labels: ["bug"]
+body:
+  - type: textarea
+    id: descricao
+    attributes:
+      label: Descrição do problema
+    validations:
+      required: true
+  - type: input
+    id: ics
+    attributes:
+      label: ICs afetados (se conhecidos)
+      placeholder: "COD-01, COD-02"
+  - type: textarea
+    id: reproducao
+    attributes:
+      label: Passos para reproduzir
+    validations:
+      required: true
+  - type: textarea
+    id: esperado
+    attributes:
+      label: Comportamento esperado
+    validations:
+      required: true

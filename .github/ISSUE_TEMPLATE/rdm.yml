@@ -1,0 +1,53 @@
+name: Requisição de Mudança (RDM)
+description: Solicitar alteração formal em um Item de Configuração com baseline aprovada.
+title: "[RDM] "
+labels: ["change-request"]
+body:
+  - type: textarea
+    id: motivacao
+    attributes:
+      label: Motivação
+      description: Por que a mudança é necessária?
+    validations:
+      required: true
+  - type: input
+    id: ics
+    attributes:
+      label: ICs impactados
+      description: Liste os códigos dos Itens de Configuração afetados (ex.: COD-02, REQ-01).
+      placeholder: "COD-02, BD-01"
+    validations:
+      required: true
+  - type: textarea
+    id: proposta
+    attributes:
+      label: Proposta de solução
+    validations:
+      required: true
+  - type: dropdown
+    id: classificacao
+    attributes:
+      label: Classificação sugerida (triagem do GC confirma)
+      options:
+        - Baixa
+        - Média
+        - Crítica
+    validations:
+      required: true
+  - type: dropdown
+    id: lgpd
+    attributes:
+      label: Há impacto em dados pessoais / LGPD?
+      options:
+        - "Não"
+        - "Sim"
+        - "A avaliar pelo CCB"
+    validations:
+      required: true
+  - type: checkboxes
+    id: confirmacoes
+    attributes:
+      label: Confirmações
+      options:
+        - label: Verifiquei que a mudança afeta um IC já incorporado a uma baseline.
+          required: true

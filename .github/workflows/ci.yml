@@ -1,0 +1,46 @@
+name: CI
+
+# CFG-01 — Pipeline de integração contínua (PGCS 4.3)
+# Build, testes e lint em cada Pull Request para a branch protegida main.
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # Ajuste os passos abaixo à stack real do projeto (Node, Python, etc.).
+      # Os comandos estão como placeholders e devem falhar de forma visível
+      # enquanto não houver implementação, mantendo o pipeline honesto.
+
+      - name: Lint
+        run: |
+          echo "TODO: configurar lint do projeto (ex.: eslint / ruff)"
+          # exit 1  # descomente quando o lint estiver configurado
+
+      - name: Build
+        run: |
+          echo "TODO: configurar build do projeto"
+
+      - name: Testes
+        run: |
+          echo "TODO: executar testes de tests/automatizados/"
+
+  secret-scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verificação básica de segredos (LGPD)
+        run: |
+          if git grep -nIE '(PASSWORD|SECRET|API_KEY|TOKEN)\s*=\s*[^[:space:]]+' -- ':!*.example' ':!.github/*' ; then
+            echo "::error::Possível segredo versionado encontrado. Remova antes do merge (PGCS / LGPD)."
+            exit 1
+          fi
+          echo "Nenhum segredo óbvio encontrado."

@@ -1,0 +1,42 @@
+# Segredos e ambiente (PROIBIDOS no repositório — ver PGCS / LGPD)
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+secrets/
+credentials*.json
+
+# Dependências
+node_modules/
+.pnp/
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+vendor/
+
+# Build / artefatos
+dist/
+build/
+out/
+*.log
+coverage/
+.nyc_output/
+
+# Docker
+docker-compose.override.yml
+
+# Arquivos do Claude Code do desenvolvedor (NÃO versionar — ver CLAUDE.md / PGCS)
+CLAUDE.md
+.claude/
+
+# IDE / SO
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Testes
+tests/automatizados/**/tmp/

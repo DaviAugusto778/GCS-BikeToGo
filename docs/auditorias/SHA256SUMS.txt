@@ -1,0 +1,16 @@
+# SHA-256 dos artefatos da baseline v0.3-rc1 (BikeToGo)
+# Gerado como passo final da Auditoria de Configuração (RAC-01) / VDD.
+# Formato: <hash sha256>  <caminho relativo à raiz do repositório>
+# Verificação posterior: comparar a saída de Get-FileHash com as linhas abaixo.
+#
+# >>> SUBSTITUA as linhas abaixo executando, na raiz do repositório:
+#
+#   Get-FileHash docs/auditorias/sbom.json, docs/auditorias/VDD.md, `
+#     docs/auditorias/RAC-01_Auditoria_Configuracao_v0.3-rc1.md -Algorithm SHA256 |
+#     ForEach-Object { "{0}  {1}" -f $_.Hash.ToLower(), (Resolve-Path -Relative $_.Path) }
+#
+# (este arquivo, SHA256SUMS.txt, NÃO é incluído — evita auto-referência)
+
+79354ab108b231a3257e8922aadf2b1bb7cf91c8971d6da98d5ead206ee575ee  docs/auditorias/sbom.json
+411c70bf4473bc77bdac4e80ac0adcfa75cd194c44922acf1c8ff7750ba5db9e  docs/auditorias/VDD.md
+1eab9ffbcd6ab6ebed5c121eda21f884d151ea277d4ea19efdf55e68d99718ae  docs/auditorias/RAC-01_Auditoria_Configuracao_v0.3-rc1.md

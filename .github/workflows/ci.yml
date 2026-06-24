@@ -16,22 +16,29 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      # Ajuste os passos abaixo à stack real do projeto (Node, Python, etc.).
-      # Os comandos estão como placeholders e devem falhar de forma visível
-      # enquanto não houver implementação, mantendo o pipeline honesto.
+      # COD-02 é um app Java/Swing (pacote pooTrabalhoFinal). A toolchain é
+      # FIXADA para garantir reprodutibilidade byte-a-byte do artefato BLD-01
+      # (ver docs/auditorias/RELATORIO-TECNICO_Etapa2_Build-SBOM-VDD.md §5).
+      - name: Configurar JDK (toolchain fixada)
+        uses: actions/setup-java@v4
+        with:
+          distribution: oracle
+          java-version: '21'
+
+      - name: Build reprodutível (CFG-01) + verificação de determinismo
+        run: bash config/build.sh --verify
+
+      - name: Publicar artefato (BLD-01)
+        uses: actions/upload-artifact@v4
+        with:
+          name: biketogo-jar
+          path: build/biketogo-*.jar
 
       - name: Lint
-        run: |
-          echo "TODO: configurar lint do projeto (ex.: eslint / ruff)"
-          # exit 1  # descomente quando o lint estiver configurado
-
-      - name: Build
-        run: |
-          echo "TODO: configurar build do projeto"
+        run: echo "TODO: lint do código Java (ex.: checkstyle/spotless) — definir em ARQ-01"
 
       - name: Testes
-        run: |
-          echo "TODO: executar testes de tests/automatizados/"
+        run: echo "TODO: executar testes de tests/automatizados/ (TST-02) — ainda ausentes"
 
   secret-scan:
     runs-on: ubuntu-latest

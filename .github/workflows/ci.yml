@@ -35,10 +35,12 @@ jobs:
           path: build/biketogo-*.jar
 
       - name: Lint
-        run: echo "TODO: lint do código Java (ex.: checkstyle/spotless) — definir em ARQ-01"
+        run: |
+          echo "TODO: lint do código Java (ex.: checkstyle/spotless) — definir em ARQ-01"
 
       - name: Testes
-        run: echo "TODO: executar testes de tests/automatizados/ (TST-02) — ainda ausentes"
+        run: |
+          echo "TODO: executar testes de tests/automatizados/ (TST-02) — ainda ausentes"
 
   secret-scan:
     runs-on: ubuntu-latest

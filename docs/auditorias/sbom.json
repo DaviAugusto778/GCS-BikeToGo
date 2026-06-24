@@ -1,0 +1,74 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.5.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "version": 1,
+  "serialNumber": "urn:uuid:b1ce2c00-0d3c-4a11-9f0e-000000000302",
+  "metadata": {
+    "timestamp": "2026-06-24T00:00:00Z",
+    "lifecycles": [
+      { "phase": "build" }
+    ],
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.1",
+          "description": "Varredura de src/backend/java e do JAR confirmou ZERO pacotes de terceiros (sem lockfile e sem libs embarcadas no JAR). SBOM curado manualmente para registrar a dependência de plataforma."
+        }
+      ]
+    },
+    "component": {
+      "type": "application",
+      "bom-ref": "app:biketogo-backend@0.3.0",
+      "group": "br.ufg.biketogo",
+      "name": "biketogo-backend",
+      "version": "0.3.0",
+      "description": "COD-02 — back-end/desktop do BikeToGo (app Java Swing, pacote pooTrabalhoFinal). Artefato BLD-01: build/biketogo-0.3.0.jar.",
+      "purl": "pkg:generic/br.ufg.biketogo/biketogo-backend@0.3.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "1aae71ca3e23ab50b7f5e1d341eac33a5d5f1853794c62f036e011f8212ada28"
+        }
+      ],
+      "properties": [
+        { "name": "biketogo:baseline", "value": "v0.3-rc2" },
+        { "name": "biketogo:artifact", "value": "build/biketogo-0.3.0.jar" },
+        { "name": "biketogo:reproducible", "value": "true" },
+        { "name": "biketogo:reference-toolchain", "value": "Oracle JDK 21.0.11" }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "platform",
+      "bom-ref": "platform:oracle-jdk@21.0.11",
+      "group": "com.oracle",
+      "name": "Oracle JDK",
+      "version": "21.0.11",
+      "description": "Plataforma Java SE 21 (LTS) — única dependência de build e de runtime. Fornece a API javax.swing / java.* usada pelo app. Fixada na baseline por afetar o hash do artefato (atributo Created-By do manifesto).",
+      "scope": "required",
+      "externalReferences": [
+        { "type": "website", "url": "https://www.oracle.com/java/technologies/javase/21-relnote-issues.html" }
+      ],
+      "properties": [
+        { "name": "biketogo:role", "value": "build-and-runtime-toolchain" },
+        { "name": "biketogo:bytecode-release", "value": "21" }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "app:biketogo-backend@0.3.0",
+      "dependsOn": [ "platform:oracle-jdk@21.0.11" ]
+    },
+    {
+      "ref": "platform:oracle-jdk@21.0.11",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

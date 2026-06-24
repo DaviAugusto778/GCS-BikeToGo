@@ -46,6 +46,20 @@ Software (PGCS)**, baseado na **IEEE Std 828-2012**. Antes de contribuir, leia o
 | M3 | LB-Desenvolvimento | `v0.3-LB-Desenvolvimento` |
 | M4 | LB-Testes/Release | `v1.0-Release` |
 
+## Build (BLD-01)
+
+Build reprodutível do back-end Java (COD-02) via `config/build.sh` (CFG-01):
+
+```bash
+bash config/build.sh            # gera build/biketogo-0.3.0.jar
+bash config/build.sh --verify   # + confere reprodutibilidade byte-a-byte (SHA-256)
+```
+
+Toolchain de referência: **Oracle JDK 21.0.11** (fixada para reprodutibilidade —
+ver [`docs/auditorias/RELATORIO-TECNICO_Etapa2_Build-SBOM-VDD.md`](./docs/auditorias/RELATORIO-TECNICO_Etapa2_Build-SBOM-VDD.md)).
+SBOM em [`docs/auditorias/sbom.json`](./docs/auditorias/sbom.json); descrição da
+versão em [`docs/auditorias/VDD.md`](./docs/auditorias/VDD.md).
+
 ## Como contribuir
 
 Branch dedicada → commit (Conventional Commits, referenciando IC/RDM) → Pull

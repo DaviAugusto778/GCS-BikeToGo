@@ -1,0 +1,18 @@
+# SHA-256 dos artefatos da baseline v0.3-rc2 (BikeToGo)
+# Etapa 2 da Gerência de Configuração — Build + SBOM + VDD (IEEE 828-2012).
+# Formato: <hash sha256>  <caminho relativo à raiz do repositório>
+#
+# Verificação (raiz do repo):
+#   - Git Bash / Linux:  sha256sum -c docs/auditorias/SHA256SUMS.txt
+#   - PowerShell:        Get-FileHash <arquivo> -Algorithm SHA256
+#
+# O JAR (build/biketogo-0.3.0.jar) é gerado por `config/build.sh` com a toolchain
+# de referência (Oracle JDK 21.0.11); é artefato BLD-01 (não versionado, *gitignored*).
+# Trocar o JDK altera o hash do JAR — ver RELATORIO-TECNICO §5.
+# (Este arquivo, SHA256SUMS.txt, NÃO se inclui — evita auto-referência.)
+
+bf9523c5fb4ddc13b064169c31b3ae468e6c5d5dddf112c79cc77ba8a217d5eb  docs/auditorias/sbom.json
+04434a71a9551493cce6aa3767c1909f5dc84ad7fef1996e499737a19ae4c83c  docs/auditorias/VDD.md
+80706081a3a228cee131c91b97f751b0dfed4160892d15c746ddd599e7ae81cd  docs/auditorias/RELATORIO-TECNICO_Etapa2_Build-SBOM-VDD.md
+1eab9ffbcd6ab6ebed5c121eda21f884d151ea277d4ea19efdf55e68d99718ae  docs/auditorias/RAC-01_Auditoria_Configuracao_v0.3-rc1.md
+1aae71ca3e23ab50b7f5e1d341eac33a5d5f1853794c62f036e011f8212ada28  build/biketogo-0.3.0.jar
